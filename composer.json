@@ -1,0 +1,18 @@
+{
+    "name": "vendor/admiss-rating",
+    "description": "Description of project Admiss-rating.",
+    "authors": [
+        {
+            "name": "brun",
+            "email": "admin@brun.if.ua"
+        }
+    ],
+    "config": {
+        "vendor-dir": "lib"
+    },
+    "require": {
+        "phpexcel/phpexcel": "1.7.*",
+        "twitter/bootstrap": "3.2.*",
+        "datatables/datatables": "1.10.*"
+    }
+}
