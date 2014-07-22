@@ -1,3 +1,6 @@
+<?php
+    
+?>
 <!DOCTYPE html>
 <!--
  * Copyright (C) 2014 brun
@@ -24,11 +27,21 @@
         <script src="lib/datatables/datatables/media/js/jquery.js" type="text/javascript"></script>
         <script src="lib/datatables/datatables/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
         <script src="lib/twitter/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-        <title></title>
+        <title>Admiss::report</title>
     </head>
-    <body>
+    <body class="container-fluid">
+        <h3 class="text-center">Інформація про подання документів до<br />
+        Івано-Франківського національного технічного університету нафти і газу у 2014 </h3>
         <?php
-            
+        require_once 'entrant.php';
+       
+        showNavbar();
+        showTableWrapper();
+        
+        
         ?>
+        
+        <footer class="container-fluid">&copy; <a href="http://brun.if.ua/" title="Розробка сайтів">Ігор Броновський</a> 2014. Пропозиції/побажання залишайте <a href="http://brun.if.ua/contact">тут</a></footer>
+
     </body>
 </html>
