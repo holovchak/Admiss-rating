@@ -19,8 +19,6 @@
 
 require_once 'entrant.php';
 
-//var_dump($_POST);
-
 function isOriginal($original) {
     if ($original) {
         return '<span class="glyphicon glyphicon-ok"><span style="display:none;">' . $original. '</span></span>';

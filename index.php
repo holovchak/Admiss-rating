@@ -21,6 +21,9 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="keywords" content="приймальна комісія, рейтинг, абітурієнт, вступ, 2014, єдебо, єдбо, івано-франківськ" />
+        <meta name="author" content="Ігор Броновський" />
+        <link rel="author" href="https://plus.google.com/+ІгорБроновський/posts"/>
         <link href="lib/twitter/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="lib/twitter/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
         <link href="lib/datatables/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
@@ -28,6 +31,7 @@
         <script src="lib/datatables/datatables/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
         <script src="lib/twitter/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
         <title>Admiss::report</title>
+        
     </head>
     <body class="container-fluid">
         <h3 class="text-center">Інформація про подання документів до<br />
@@ -41,7 +45,7 @@
         
         ?>
         
-        <footer class="container-fluid">&copy; <a href="http://brun.if.ua/" title="Розробка сайтів">Ігор Броновський</a> 2014. Пропозиції/побажання залишайте <a href="http://brun.if.ua/contact">тут</a></footer>
+        <footer class="container">&copy; <a href="http://brun.if.ua/" title="Розробка сайтів">Ігор Броновський</a> 2014. Пропозиції/побажання залишайте <a href="http://brun.if.ua/contact">тут</a></footer>
 
     </body>
 </html>

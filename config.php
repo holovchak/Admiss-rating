@@ -23,5 +23,3 @@
     $conn = new PDO('mysql:host=localhost;dbname=admiss-rating', $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-//    $dsn = 'mysql:host=localhost;dbname=admiss-rating';
-//    $pdo = new PDO($dsn, 'root', '123456');

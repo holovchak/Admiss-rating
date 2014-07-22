@@ -27,7 +27,6 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `entrant` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `e1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `e2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `e3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -72,6 +71,7 @@ CREATE TABLE IF NOT EXISTS `entrant` (
   `e42` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `e43` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `e44` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
