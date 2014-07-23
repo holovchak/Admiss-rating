@@ -45,7 +45,10 @@
         
         ?>
         
-        <footer class="container">&copy; <a href="http://brun.if.ua/" title="Розробка сайтів">Ігор Броновський</a> 2014. Пропозиції/побажання залишайте <a href="http://brun.if.ua/contact">тут</a></footer>
+        <footer class="container">
+            &copy; <a href="http://brun.if.ua/" title="Розробка сайтів">Ігор Броновський</a> 2014. Пропозиції/побажання залишайте <a href="http://brun.if.ua/contact">тут</a>. <br />
+            Допомогти чи приєднатисьс до розробки <a href="https://github.com/NUOG/Admiss-rating">Github::Admiss-rating</a>
+        </footer>
 
     </body>
 </html>

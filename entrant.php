@@ -25,7 +25,7 @@ function getSpecialnist() {
     $resultSpecialnist = $conn->prepare('SELECT `e14` FROM `entrant` GROUP BY `e14` ASC');
     $resultSpecialnist->execute();
 
-    echo '<div class="col-md-5">';
+    echo '<div class="col-md-3">';
     echo '<label>Напрям підготовки</label>';
     echo '<select name="specialnist" id="specialnist" class="form-control">';
     while ($row = $resultSpecialnist->fetch()) {
@@ -49,9 +49,32 @@ function getCourse() {
     echo '</select></div>';
 }
 
+function getFormaNavchannya() {
+    global $conn;
+    $resultSpecialnist = $conn->prepare('SELECT `e8` FROM `entrant` GROUP BY `e8` ASC');
+    $resultSpecialnist->execute();
+    
+    echo '<div class="col-md-2">';
+    echo '<label>Форма навчання</label>';
+    echo '<select name="forma-navch" id="forma-navch" class="form-control">';
+    while ($row = $resultSpecialnist->fetch()) {
+        echo '<option>' . ($row['e8']) . '</option>' . "\n";
+    }
+    echo '</select></div>';
+}
+
+function getVstupylyNaOsnovi() {
+    echo '<div class="col-md-2" id="vstup-na">';
+    echo '<label>Вступили на основі</label>';
+    echo '<select name="vstup-na-osnovi" id="vstup-na-osnovi" class="form-control">' . "\n";
+    echo '<option value="102">Загальної середньої освіти</option>' . "\n";
+    echo '<option value="104">ОКР молодшого спеціаліста</option>' . "\n";    
+    echo '</select></div>' . "\n";
+}
+
 function showNavbar() {
     echo <<< NAVBAR
-    <div class="container-fluid">
+    <div class="container">
 
     <form>
         <div class="form-group">
@@ -60,6 +83,8 @@ NAVBAR;
 
     getSpecialnist();
     getCourse();
+    getFormaNavchannya();
+    getVstupylyNaOsnovi();
 
     echo <<< NAVBAR
     
@@ -87,13 +112,19 @@ function showTableWrapper() {
     $sitePath = dirname($_SERVER['SCRIPT_NAME']) . "/getData.php";
     echo <<< TABLE
     <br />
-    <div id="table-wrapper" class="container" style="min-height: 300px;">
+    <div id="table-wrapper" class="container" style="min-height: 340px;">
     
     </div>
     
     <script>
         $("#showResult").click(function() {
-            $("#table-wrapper").load("$sitePath", {specialnist: $('#specialnist').val(), course: $('#course').val(), okr: $('#okr').val() });
+            $("#table-wrapper").load("$sitePath", {
+                specialnist: $('#specialnist').val(), 
+                course: $('#course').val(),                 
+                okr: $('#okr').val(),
+                formaNavch: $('#forma-navch').val(),
+                vstupNaOsnovi: $('#vstup-na-osnovi').val()
+                });
         });
         
         $('#course').change(function() {
@@ -102,8 +133,10 @@ function showTableWrapper() {
           switch (valOKR){
             case '1':
                 $('#okr-col').hide('slow');
+                $('#vstup-na').show('slow');
                 break;
             case '5':
+                $('#vstup-na').hide('slow');
                 $('#okr-col').show('slow');
                 break;
           };
@@ -124,7 +157,7 @@ function drawTable($tableValue) {
             <th>№пп</th>
             <th>№ справи</th>
             <th>ПІБ</th>
-            <th><abbr title="Першочерговість">Першоч.</abbr></th>
+            <th>Пільга</th>
             <th>Бал</th>
             <th><abbr title="Оригінал документів">ОД</abbr></th>
             <th>Примітки</th>
@@ -136,7 +169,7 @@ function drawTable($tableValue) {
             <th>№пп</th>
             <th>№ справи</th>
             <th>ПІБ</th>
-            <th><abbr title="Першочерговість">Першоч.</abbr></th>
+            <th>Пільга</th>
             <th>Бал</th>
             <th><abbr title="Оригінал документів">ОД</abbr></th>
             <th>Примітки</th>
