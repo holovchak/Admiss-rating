@@ -19,13 +19,13 @@
 
 require_once 'config.php';
 
-// вибір спеціальностей
+// вибір напряму
 function getSpecialnist() {
     global $conn;
     $resultSpecialnist = $conn->prepare('SELECT `e14` FROM `entrant` GROUP BY `e14` ASC');
     $resultSpecialnist->execute();
 
-    echo '<div class="col-md-3">';
+    echo '<div class="col-md-3" id="napr">';
     echo '<label>Напрям підготовки</label>';
     echo '<select name="specialnist" id="specialnist" class="form-control">';
     while ($row = $resultSpecialnist->fetch()) {
@@ -34,7 +34,22 @@ function getSpecialnist() {
     echo '</select></div>';
 }
 
-// вибір спеціальностей
+// вибір спеціальності
+function getSpecialnist2() {
+    global $conn;
+    $resultSpecialnist = $conn->prepare('SELECT `e16` FROM `entrant` GROUP BY `e16` ASC');
+    $resultSpecialnist->execute();
+
+    echo '<div class="col-md-3" id="spec" style="display: none;">';
+    echo '<label>Спеціальність</label>';
+    echo '<select name="specialnist2" id="specialnist2" class="form-control">';
+    while ($row = $resultSpecialnist->fetch()) {
+        echo '<option>' . ($row['e16']) . '</option>' . "\n";
+    }
+    echo '</select></div>';
+}
+
+// вибір курсів
 function getCourse() {
     global $conn;
     $resultSpecialnist = $conn->prepare('SELECT `e7` FROM `entrant` GROUP BY `e7` ASC');
@@ -49,6 +64,7 @@ function getCourse() {
     echo '</select></div>';
 }
 
+// вибір форм навчання
 function getFormaNavchannya() {
     global $conn;
     $resultSpecialnist = $conn->prepare('SELECT `e8` FROM `entrant` GROUP BY `e8` ASC');
@@ -63,6 +79,7 @@ function getFormaNavchannya() {
     echo '</select></div>';
 }
 
+// вибір школярів чи МС
 function getVstupylyNaOsnovi() {
     echo '<div class="col-md-2" id="vstup-na">';
     echo '<label>Вступили на основі</label>';
@@ -70,6 +87,19 @@ function getVstupylyNaOsnovi() {
     echo '<option value="102">Загальної середньої освіти</option>' . "\n";
     echo '<option value="104">ОКР молодшого спеціаліста</option>' . "\n";    
     echo '</select></div>' . "\n";
+}
+
+// кількість вступників
+function getEntrantCount() {
+    global $conn;
+    $resultSpecialnist = $conn->prepare('SELECT count(`ID`) as `entrant-count` FROM `entrant`');
+    $resultSpecialnist->execute();
+    
+    echo '<div class="container">';
+    while ($row = $resultSpecialnist->fetch()) {
+        echo '<p>Кількість заяв: ' . ($row['entrant-count']) . '</p>' . "\n";
+    }
+    echo '</div>';
 }
 
 function showNavbar() {
@@ -82,6 +112,7 @@ function showNavbar() {
 NAVBAR;
 
     getSpecialnist();
+    getSpecialnist2();
     getCourse();
     getFormaNavchannya();
     getVstupylyNaOsnovi();
@@ -120,6 +151,7 @@ function showTableWrapper() {
         $("#showResult").click(function() {
             $("#table-wrapper").load("$sitePath", {
                 specialnist: $('#specialnist').val(), 
+                specialnist2: $('#specialnist2').val(), 
                 course: $('#course').val(),                 
                 okr: $('#okr').val(),
                 formaNavch: $('#forma-navch').val(),
@@ -134,10 +166,14 @@ function showTableWrapper() {
             case '1':
                 $('#okr-col').hide('slow');
                 $('#vstup-na').show('slow');
+                $('#napr').show('slow');
+                $('#spec').hide('slow');
                 break;
             case '5':
                 $('#vstup-na').hide('slow');
                 $('#okr-col').show('slow');
+                $('#spec').show('slow');
+                $('#napr').hide('slow');
                 break;
           };
         });
@@ -145,6 +181,8 @@ function showTableWrapper() {
     </script>
    
 TABLE;
+    
+    getEntrantCount();
 
 }
 
