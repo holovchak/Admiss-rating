@@ -81,7 +81,7 @@ function getFormaNavchannya() {
 
 // вибір школярів чи МС
 function getVstupylyNaOsnovi() {
-    echo '<div class="col-md-2" id="vstup-na">';
+    echo '<div class="col-md-3" id="vstup-na">';
     echo '<label>Вступили на основі</label>';
     echo '<select name="vstup-na-osnovi" id="vstup-na-osnovi" class="form-control">' . "\n";
     echo '<option value="102">Загальної середньої освіти</option>' . "\n";
@@ -97,7 +97,8 @@ function getEntrantCount() {
     
     echo '<div class="container">';
     while ($row = $resultSpecialnist->fetch()) {
-        echo '<p>Кількість заяв: ' . ($row['entrant-count']) . '</p>' . "\n";
+        $entrant_count = number_format($row['entrant-count']);
+        echo '<h4>Кількість заяв: <span class="label label-info"> ' . ($entrant_count) . '</span></h4>' . "\n";
     }
     echo '</div>';
 }
