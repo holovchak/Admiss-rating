@@ -23,18 +23,18 @@ require_once 'entrant.php';
 
 function isOriginal($original) {
     if ($original) {
-        return '<span class="glyphicon glyphicon-ok"><span style="display:none;">' . $original. '</span></span>';
+        return '<font color="#60a917"><span class="glyphicon glyphicon-ok"><span style="display:none;">' . $original. '</span></span></font>';
     } else {
-        return '<span class="glyphicon glyphicon-minus"><span style="display:none;">' . $original. '</span></span>';
+        return '<font color="#999999"><span class="glyphicon glyphicon-minus"><span style="display:none;">' . $original. '</span></span></font>';
     }
     
 }
 
 function isPozaKonkurs($konkurs) {
     if (trim($konkurs) != '') {
-        return '<span class="glyphicon glyphicon-ok"><span >' . $konkurs . '</span></span>';
+        return '<font color="#60a917"><span class="glyphicon glyphicon-ok"><span >' . $konkurs . '</span></span></font>';
     } else {
-        return '<span class="glyphicon glyphicon-minus"><span style="display:none;">' . $konkurs . '</span></span>';
+        return '<font color="#999999"><span class="glyphicon glyphicon-minus"><span style="display:none;">' . $konkurs . '</span></span></font>';
     }    
 }
 
